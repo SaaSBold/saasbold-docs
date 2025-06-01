@@ -1,0 +1,55 @@
+{
+  "index": "Introduction",
+  "installation": "Installation",
+  "integrations": {
+    "title": "🔌 INTEGRATIONS",
+    "items": {
+      "database": "Database",
+      "authentication": "Authentication",
+      "payments": {
+        "title": "Payments",
+        "items": {
+          "stripe": "Stripe",
+          "lemonsqueezy": "LemonSqueezy",
+          "paddle": "Paddle",
+          "change-provider": "Change Payment Provider"
+        }
+      },
+      "sanity": "Sanity",
+      "algolia": "Algolia",
+      "mailchimp": "Mailchimp",
+      "emails": "Emails",
+      "uploads": "Uploads",
+      "enable-or-disable-integrations": "Enable or Disable Integrations",
+      "i18n": "Internationalization Support"
+    }
+  },
+  "ui-customization": {
+    "title": "🎨 UI CUSTOMIZATION",
+    "items": {
+      "header": "Header",
+      "hero": "Hero",
+      "features": "Features",
+      "features-with-image": "Features with Image",
+      "counter": "Counter",
+      "cta": "Call To Action",
+      "testimonials": "Testimonials",
+      "pricing": "Pricing",
+      "faq": "FAQ",
+      "newsletter": "Newsletter",
+      "blog": "Blog",
+      "footer": "Footer",
+      "auth-page": "Auth Page",
+      "error-page": "Error Page",
+      "support-page": "Support Page"
+    }
+  },
+  "operation": {
+    "title": "🛠️ OPERATION",
+    "items": {
+      "admin-access": "Admin Access",
+      "authorization": "Authorization",
+      "environment-variables": "Environment Variables"
+    }
+  }
+}
