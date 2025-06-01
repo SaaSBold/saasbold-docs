@@ -1,0 +1,145 @@
+---
+title: Sanity | SaasBold Documentation
+description: Learn how to integrate Sanity into your SaaSBold boilerplate.
+---
+
+# Sanity
+
+SaaSBold comes with a fully functional blog with Sanity. In this part of the documentation, we are going to show you how to integrate Sanity and enable blog into your SaaS Boilerplate.
+
+## Overview
+
+Integrating Sanity into your SaaSBold boilerplate allows you to manage and publish content easily. Sanity provides a powerful content management system (CMS) that integrates seamlessly with your application. This guide will walk you through the steps to set up Sanity, configure it, and publish content.
+
+Follow the Step-by-Step Guide to Integrate Sanity:
+
+## Sanity Project
+
+Let's start our integration process by utilizing the Sanity project.
+
+1. **Initialize a Sanity project:** Run this command in a separate directory/folder and follow the instructions on the command line to initialize a project.
+
+```bash
+npm -y create sanity@latest
+   ```
+
+> **Note**\
+   > We don't need the project created with this command. It'll create the project on the Sanity dashboard. You can delete the project folder from the directory after the project shows up on [sanity.io/manage](http://sanity.io/manage)
+
+2. **Get the Project Name and ID:** To get the key, log in to [sanity.io/manage](https://www.sanity.io/manage) and go to the project you created earlier. When you go to the project, you’ll see `Project Name` and `ID.` Go ahead and copy it.
+
+![Sanity - Project Dashboard](/images/docs/integrations/sanity/project/step-2.png)
+
+```ini
+NEXT_PUBLIC_SANITY_PROJECT_ID=YOUR_SANITY_PROJECT_ID
+NEXT_PUBLIC_SANITY_PROJECT_TITLE=YOUR_SANITY_PROJECT_TITLE
+   ```
+
+### Configuring Sanity Studio
+
+1. **Add URL to Sanity Studio**: Go to `http://localhost:3000/studio` to add the URL. You’ll be redirected to a page that looks like this. Go ahead and click on **Continue.** It’ll take you to your Sanity Projects Dashboard.
+
+![Sanity - CORS](/images/docs/integrations/sanity/studio/step-1.png)
+
+2. Click **Continue** to add the URL as CORS origin.
+3. To start writing, log in to the studio by visiting `http://localhost:3000/studio`. You’ll be redirected to a login page where you’ll see all the providers you can use to log in. Choose the provider you want to log in with.
+
+After you’ve logged in, you’ll be redirected to Sanity Studio Dashboard. From the dashboard, you can post Articles and add Authors.
+
+![Sanity Dashboard](/images/docs/integrations/sanity/studio/step-3.png)
+
+## Writing an Article
+
+Now, let's explore how to create, write and publish your article using Sanity's dashboard.
+
+1. **Create a New Post:** Click on the **Post** button, then on the **Create** post icon, as shown below.
+
+![Sanity - Create Article](/images/docs/integrations/sanity/writing-article/step-1.png)
+
+2. **Write Your Article:** Now write the article by adding all the required data like the **Title**, **Metadata,** and **Tags**.
+
+![Sanity - write Article](/images/docs/integrations/sanity/writing-article/step-2.png)
+
+3. **Add Image**: To add an image to the blog post article, click the "Image" button in the editor and choose "Image".
+
+4. Once your article is ready, click the "Publish" button to publish the article.
+
+If everything is done correctly, you’ll see the article on the Blog page.
+
+---
+
+## Sanity API Integration
+
+To seamlessly fetch and display the blog posts on our website, we'll need an API key.
+
+1. **Get the API Key**: Go to the API tab, then **Tokens**. After that, click on the **Add API token** button.
+
+![Sanity - Token](/images/docs/integrations/sanity/api-integration/step-1.png)
+
+2. Fill in the form with the required information.
+
+- **Name:** Give a descriptive name to your API key.
+- **Permission**: Give the **editor** access Or Choose the access privileges for the token you want.
+
+![](/images/docs/integrations/sanity/api-integration/step-2.png)
+
+3. After you hit the save button, you’ll get an API key. Copy the key and save it to the env file:
+
+![Sanity - API Key](/images/docs/integrations/sanity/api-integration/step-3.png)
+
+```ini
+SANITY_API_KEY=YOUR_SANITY_API_KEY
+   ```
+
+## Sanity Webhook Integration
+
+We used Sanity webhook for on-demand data revalidation.
+
+Follow the steps to integrate webhook:
+
+1. **Create a webhook**: Go to [sanity/manage](https://www.sanity.io/manage) and navigate to the API tab, then click on the **Create Webhook** button
+
+![Sanity - Create Webhook](/images/docs/integrations/sanity/webhook/step-1.png)
+
+2. Fill in the form with information about the hook you want to create:
+
+- **Name:** Give your webhook a name.
+- **Description:** Describe the function of your webhook (This is an optional field).
+- **URL:** Set the URL to `https://YOUR_SITE_URL/api/revalidate`
+- **Dataset:** Choose your desired dataset or leave the default value.
+- **Trigger on:** Set the hook to trigger "Create", "Update", and "Delete".
+- **Filter:** Leave this field blank.
+- **Projections:** Set the projections to `{_type, "slug":` `slug.current}`
+- **Status:** Check the enable webhook box.
+- **HTTP Method:** POST.
+- **HTTP headers:** Leave HTTP headers, API version, and Draft as default.
+- **API version:** As default.
+- **Drafts**: Keep untick or Choose as you desired
+- **Secret:** Give your webhook a unique secret and copy it.
+
+Hit save once completed to create your webhook.
+
+3. Save your webhook in the `.env` file under this variable name of your **live site**.
+
+> **Note**\
+   > You can’t test webhooks in the local environment.
+
+```ini
+SANITY_HOOK_SECRET=YOUR_SECRET
+   ```
+
+4. Go ahead and change the content of an Article and publish it. After that, hard reload your website, and you should see the changes in real-time.
+
+---
+
+## Tips
+
+Here are some additional tips to help you make the most of your Sanity integration:
+
+1. **Use Predefined Schemas**: Leverage Sanity's predefined schemas to quickly set up content structures like posts, authors, and categories.
+2. **Customize the Studio**: Sanity Studio is highly customizable. You can modify the layout, add custom input components, and tailor the interface to meet your specific needs.
+3. **Back-Up Regularly**: Although Sanity is robust, it’s always a good practice to back up your content and configurations regularly.
+4. **Explore Plugins**: Sanity has a rich ecosystem of plugins that can extend the functionality of your studio.
+5. **Stay Updated**: Keep an eye on updates and new features released by Sanity. Regular updates can bring new capabilities and improvements.
+
+By following these steps, you will successfully integrate Sanity into your SaaSBold boilerplate, enabling you to manage and publish blog content efficiently.

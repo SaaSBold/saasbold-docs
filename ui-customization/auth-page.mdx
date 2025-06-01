@@ -1,0 +1,75 @@
+---
+title: Auth Page | SaasBold Documentation
+description: In this section of the documentation, we will show you how to customize the SaaSBold boilerplate's authentication pages (login, signup).
+---
+
+# Auth Page
+
+The authentication pages are crucial for user registration and access control, providing various login options to enhance the user experience.
+
+```tsx
+@/components/Auth
+```
+
+## Overview
+
+The default authentication pages include options for social logins, email/password logins, and magic link logins. Additionally, you can configure demo user/admin login options.
+
+- **Sign-in Page:** This page provides users with various login methods, including social and traditional email/password logins.
+- **Sign Up Page**: Allows new users to create an account using different registration methods.
+- **Demo User/Admin Login**: Steps to enable or disable demo user/admin login options.
+- **Social Login Options**: Steps to add or remove login options such as Google, GitHub, and Facebook.
+
+## Sign In Page
+
+![Sing In Page](/images/docs/ui-customization/auth-pages/sign-in.png)
+
+**Locate the Sign-In Page Components**: Open the `Signin` component file located in `components/Auth/Signin/index.tsx`.
+
+**Update the Sign-In Page**: Modify the login options and labels to match your preferred authentication methods.
+
+**Enable/Disable Demo User/Admin Login**: Add or remove demo user/admin login options as needed. To disable the login option, comment out the component.
+
+```tsx
+{
+	/* <DemoSignin /> */
+}
+```
+
+**Add/Remove Social Login Options**: Integrate or remove social login providers like Google, GitHub, and Facebook. Comment out the component to disable the option.
+
+```tsx
+<GoogleSigninButton text='Sign in' />;
+
+{
+	/* <GithubSigninButton text='Sign in' /> */
+}
+```
+
+**Magic Link**: Enable or Disable the Magic Link sign-up option. Comment out the content to disable the option.
+
+```tsx
+<SigninWithMagicLink />
+```
+
+## Sign Up Page
+
+![Sign Up Page](/images/docs/ui-customization/auth-pages/sign-up.png)
+
+**Locate the Sing Up Page Components**: Open the `Signup` component file located in `components/Auth/Signup/`.
+
+**Update the Sign Up Page**: Customize the registration fields and methods to suit your application requirements.
+
+**Add/Remove Social Sing-Up Options**: Integrate or remove social login providers like Google, GitHub, and Facebook.
+
+**Magic Link**: Enable or Disable the Magic Link sign-up option.
+
+**Review and Save**: After customizing the authentication pages, ensure all login methods are functional, and the user experience is smooth. Save the files and verify the changes.
+
+## Tips
+
+- **User-Friendly Design**: Ensure the authentication pages are intuitive and easy to navigate.
+- **Security**: Implement necessary security measures to protect user data.
+- **Clear Instructions**: Provide instructions and error messages to guide users through the login and signup processes.
+
+By following these steps and tips, you can create effective authentication pages that enhance the user experience and ensure secure access to your application.

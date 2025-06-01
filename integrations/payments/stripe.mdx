@@ -1,0 +1,160 @@
+---
+title: Stripe | SaasBold Documentation
+description: Learn how to integrate Stripe into your SaaS Boilerplate to manage payment and subscriptions.
+---
+
+# Stripe
+
+SaaSBold comes with Stripe integration to manage payment and subscriptions. This guide covers setting up Stripe, creating subscription plans, generating keys, and configuring webhooks.
+
+## Overview
+
+Stripe is a powerful payment processor that allows you to manage payment and subscriptions efficiently. This guide will show you how to set up Stripe, including creating subscription plans, generating required keys, and configuring webhooks.
+
+> **Note**\
+> To use a different payment provider, skip this step and follow either the [LemonSqueezy](/docs/integrations/lemonsqueezy) guide or [Paddle guide](/docs/integrations/paddle) for subscription integration.
+
+## Getting Stripe Secret Key
+
+To begin, you need a Stripe account. If you don’t have one, go ahead and create one from [Stripe](https://dashboard.stripe.com/register).
+
+1. Log in to your Stripe account.
+2. **Enable Test Mode**: For this integration, we’ll be using Test Mode. Ensure to activate your Stripe account and switch to the real Secret Key before deploying.
+3. Go to the **Developers** tab.
+
+![Developer Tab](/images/docs/integrations/stripe/secret-key/step-3.png)
+
+4. Go to the **API Keys** tab, scroll down to the Secret Key, and copy it.
+
+![Stripe - Secret Key](/images/docs/integrations/stripe/secret-key/step-4.png)
+
+5. **Update Environment Variable**: Now, Add the Secret Key to your `.env` file:
+
+```ini
+STRIPE_SECRET_KEY=YOUR_STRIPE_SECRET_KEY
+   ```
+
+## Creating Subscription plans
+
+Now that we got the keys, let’s create a subscription plan.
+
+1. Login to your Stripe account.
+2. Go to the **Products** tab and click on the **Add a Product** button.
+
+![](/images/docs/integrations/stripe/subscription-plans/step-2-1.png)
+
+**Fill Product Information**: Complete the form, and make sure to choose "Recurring payment."
+
+![Stripe - Adding a product and choosing Recurring payment](/images/docs/integrations/stripe/subscription-plans/step-2-2.png)
+
+Click on Save product and note down the details.
+
+## Getting Subscription data
+
+Now that we have successfully created the subscription, we need to get the subscription plan data to use it on our app.
+
+1. To update the data open up the `pricing/pricingData.ts` file.
+
+![](/images/docs/integrations/stripe/subscription-data/step-1.png)
+
+2. **Get Plan Details**: From your Stripe Dashboard, navigate to **Dashboard->** **Product catalog**, and open your product.
+
+![Stripe - Product Catalog](/images/docs/integrations/stripe/subscription-data/step-2-1.png)
+
+Now, get the `Name`, `Price`, and `price_id`.
+
+![](/images/docs/integrations/stripe/subscription-data/step-2-2.png)
+
+**Update Data**: Update the `pricingData.ts` file with these details.
+
+> **Note**\
+   > For the price, make sure to multiply it by 100; it’s a convention stripe uses. For example, $5 becomes 500.
+
+## Webhook Integration
+
+We've integrated Stripe, created subscription plans, and loaded the data on the `pricingData.ts` file.\
+Now, we will have to integrate Stripe Webhook to save the subscription data in the database.
+
+First, we will see how to enable Webhook for testing locally, and then we will see how to enable it for production.
+
+### Webhook integration for local development
+
+1. **Add Local Listener**: Go to **Developers>Webhooks>Add local listener**
+
+![](/images/docs/integrations/stripe/webhook/local-development/step-1.png)
+
+2. Select **Test in a local environment**
+
+![Stripe - Test Environment](/images/docs/integrations/stripe/webhook/local-development/step-2.png)
+
+3. Install [Stripe CLI](https://stripe.com/docs/stripe-cli) and login to stripe
+
+```bash
+stripe login
+   ```
+
+4. **Run Webhook Server**: Run this command to forward the event to the webhook. I’ve added this script to the `package.json` file
+
+```bash
+npm run stripe:listen
+   ```
+
+It'll start the webhook server and give us the webhook secret.
+
+5. Copy the webhook secret (whsec\_...) from the terminal and save it in the `.env` file:
+
+```ini
+STRIPE_WEBHOOK_SECRET=
+   ```
+
+Now when you make a purchase it'll update the user's table on the Database.
+
+You'll notice these entries getting updated with appropriate data.\
+`stripe_current_period_end`\
+`stripe_customer_id`\
+`stripe_price_id`\
+`stripe_subscription_id`
+
+### Webhook integration for production
+
+1. **Add Endpoint**: Go to **Developers>Webhooks>Add an endpoint**
+2. Now add the **webhook URL**, which is `yoursite.com/api/stripe/webhook`**.**
+3. **Select API Version**: Choose the **Latest API version** from the dropdown.
+
+![Stripe Events](/images/docs/integrations/stripe/webhook/production/step-3.png)
+
+4. Click on the **Select events** button.
+
+![](/images/docs/integrations/stripe/webhook/production/step-4.png)
+
+5. **Select Events**: Check the **Select all events** and then click on the **Add events** button.
+
+![Stripe - Add events](/images/docs/integrations/stripe/webhook/production/step-5.png)
+
+6. **Add Endpoint**: After that scroll down and click on the **Add Endpoint** button.
+
+We are almost done. One last thing we have to do is get the Webhook secret for the live site and add that to the `.env` file.
+
+After you’ve added the endpoint you’ll see something like this.
+
+![Stripe - Webhook Secret](/images/docs/integrations/stripe/webhook/production/step-6.png)
+
+Click on **Reveal** it'll give you a new webhook secret for the live site.
+
+Update the env with the new secret.
+
+```ini
+STRIPE_WEBHOOK_SECRET=YOUR_LIVE_WEBHOOK_SECRET
+   ```
+
+## Tips
+
+- **Testing**: Use Stripe's Test Mode to thoroughly test your integration before switching to live mode.
+- **Documentation**: Refer to Stripe’s official documentation for detailed guidance and troubleshooting.
+- **Security**: Ensure all API keys and secrets are stored securely.
+- **Event Selection**: Select only the webhook events relevant to your application to avoid unnecessary data processing.
+- **User Experience**: Make the payment and subscription process as seamless as possible for users to enhance their experience.
+
+## Summary
+
+By following these steps, you will have integrated Stripe into your SaaSBold boilerplate, enabling robust payment and subscription management. Ensure to test the integration thoroughly in Test Mode before moving to the live environment.

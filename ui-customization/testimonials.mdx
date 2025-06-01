@@ -1,0 +1,63 @@
+---
+title: Testimonials | SaasBold Documentation
+description: Learn how to customize the SaaSBold testimonials section by updating user feedback, profile images, and company information to build trust with potential customers.
+---
+
+# Testimonials
+
+The testimonials section builds credibility and trust by highlighting positive experiences and user feedback.
+
+```tsx
+import Testimonials from "./Testimonials";
+```
+
+## Overview
+
+The testimonials section in SaaSBold allows you to display authentic user feedback, enhancing credibility and encouraging trust among prospective customers. Showcases the following:
+
+![Testimonials Section](/images/docs/ui-customization/testimonials.png)
+
+- **Heading**: A title that introduces the testimonials section, emphasizing the value of user feedback.
+- **Description**: Supporting text that explains the importance of showcasing testimonials and their impact on potential users.
+- **Testimonial**: Individual feedback entries that include the user's name, profile image, role within their company, and their testimonial text.
+
+## Steps to Customize
+
+**Locate the Testimonials Component File**: Open the `Testimonials` component file located in `components/Home/Testimonials/index.tsx`
+
+**Update the Title:** Modify the title to reflect the purpose of showcasing user testimonials.
+
+```tsx
+title={"Loved by businesses worldwide."}
+```
+
+**Update the Description**: Enhance the description to emphasize why user feedback is valuable and how it can influence potential customers.
+
+```tsx
+description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit";
+```
+
+## Update Testimonials Entries
+
+1. Go to `dictionary/en.json` file.
+2. Update the testimonial entries in `homepage.testimonials_section.items`.
+
+```json
+[
+	{
+		"name": "Devid warner",
+		"designation": "CEO, ABC Company",
+		"comment": "Lorem ipsum..."
+	}
+	// Add more testimonials here
+]
+```
+
+**Review and Save:** After customizing the testimonials section, ensure each testimonial effectively showcases positive user experiences. Save the file and verify the changes.
+
+## Tips
+
+- **Authenticity**: Ensure genuine testimonials reflect real user experiences to build trust.
+- **Variety**: Include testimonials from different roles or industries to appeal to a broader audience.
+
+By following these steps and tips, you can create a compelling testimonials section that enhances your product's credibility and positively influences potential customers.

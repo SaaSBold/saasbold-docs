@@ -1,0 +1,91 @@
+---
+title: Header | SaasBold Documentation
+description: Learn how to customize your SaaSBold header with step-by-step instructions for modifying navigation links, logo placement, etc.
+---
+
+# Header
+
+In this part of the documentation, we will show you how to customize the header area of the SaaSBold boilerplate, including navigation links, logo, and styles.
+
+The header section is critical to your website's navigation and branding. It provides users with quick access to key areas of your site and establishes your brand identity through the logo and styling.
+
+```tsx
+"@/components/Header";
+```
+
+## Overview
+
+The header component is responsible for the navigation bar, including the logo, menu items, search functionality, theme switcher, and user account options. It provides a responsive design with a sticky header on the scroll.
+
+![Header Component](/images/docs/ui-customization/header.png)
+
+The Header component contains:
+
+- **Logo**: Displays the brand logo, providing immediate brand recognition.
+- **Navigation Links**: Includes links to essential sections of the website, such as Features, Pricing, Blog, and Contact.
+- **Dropdown Menus**: Contains additional navigation options within expandable dropdowns for better organization.
+- **Theme Switcher**: Allows users to toggle between themes (e.g., light and dark mode).
+- **Global Search**: Provides a search bar for users to find content across the site quickly.
+- **User Account**: Displays user-related options such as login, logout, and profile access.
+
+## Steps to Customize
+
+**Locate the Header Component**: Open the header component file located in `components/Header/index.tsx`.
+
+**Update the Logo**: Import your logo files or replace the default logos.
+
+```tsx
+import logoLight from "@/assets/your-logo-light.svg";
+import logo from "@/assets/your-logo.svg";
+```
+
+You can replace these with the paths to your own logo files.
+
+**Modify Navigation Links**: The navigation links are generated from the `menuData` array. Update this array in the `components/Header/menuData.ts` file to add, remove, or modify links.
+
+```tsx
+export const menuData: Menu[] = [
+	{
+		id: 1,
+		titleKey: "features",
+		newTab: false,
+		path: "#features",
+	},
+];
+```
+
+Adjust the links and paths as needed.
+
+**Handle Sticky Menu**: The sticky menu behavior is controlled by the `handleStickyMenu` function. You can adjust the scroll threshold or styling as needed.
+
+**Theme Switcher**: The `ThemeSwitcher` component allows users to toggle between light and dark modes.
+
+```tsx
+<ThemeSwitcher />
+```
+
+**Global Search Modal**: Include the global search modal for enhanced navigation.
+
+```tsx
+<GlobalSearchModal />
+```
+
+**User Account**: Display user account options using the Account component, which integrates with NextAuth for authentication.
+
+```tsx
+const { data: session } = useSession();
+```
+
+**Enable/Disable Components**: The header includes various components like `Dropdown`, `ThemeSwitcher`, `GlobalSearchModal`, and `Account`. You can enable or disable these components by commenting out or uncommenting the relevant code sections.
+
+**Customize Styles**: Update the Tailwind CSS classes within the component to match your desired styles. For example, you can change the background color, padding, or text styles.
+
+**Review and Save**: After making the necessary customizations, review the header to ensure it aligns with your brand and provides an intuitive navigation experience. Save the file and verify the changes.
+
+## Tips
+
+- **Consistent Branding**: Ensure your logo and color scheme are consistent with your brand identity.
+- **User Experience**: Make sure the navigation is intuitive and accessible.
+- **Responsive Design**: Test the header on various screen sizes to ensure it remains functional and visually appealing.
+
+By following these steps and tips, you can create a customized header that enhances the user experience and aligns with your application's design.

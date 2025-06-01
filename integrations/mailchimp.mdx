@@ -1,0 +1,76 @@
+---
+title: Mailchimp | SaasBold Documentation
+description: Learn how to integrate Mailchimp into the SaaSBold boilerplate.
+---
+
+# Mailchimp
+
+In this part of the documentation, we will show you how to integrate MailChimp into the SaaSBold Boilerplate.
+
+## Overview
+
+Integrating MailChimp into your SaaS boilerplate allows you to manage email subscriptions, send targeted marketing campaigns, and track results. This guide provides a detailed step-by-step process for achieving this integration efficiently.
+
+Follow the steps below to integrate MailChimp:
+
+## Creating a MailChimp Account
+
+Log in to your [MailChimp](https://mailchimp.com/) account. If you don’t have an account yet, create one.
+
+Fill out your personal and business information and verify your email address by clicking the link sent to your inbox.
+
+## MailChimp Audience
+
+1. In Mailchimp admin panel, go to **Audience Dashboard>Mange Audience>Settings.**
+
+![MailChimp - Audience Dashboard](/images/docs/integrations/mailchimp/api-key/step-1.png)
+
+2. **Audience ID**: Scroll down to the end of the settings page. You’ll find the Audience ID there.
+
+![MailChimp - Audience ID](/images/docs/integrations/mailchimp/api-key/step-2.png)
+
+Copy the Audience ID and store in your `.env` file
+
+```ini
+MAILCHIMP_AUDIENCE_ID=YOUR_AUDIENCE_ID
+   ```
+
+> **Note**\
+> If you don’t have an Audience, follow this [article](https://eepurl.com/dyilbz) to create one.
+
+## MailChimp API Key
+
+1. To Generate an API key, navigate to [API Keys](https://us1.admin.mailchimp.com/account/api/) page and click "Create A Key" button.
+
+![MailChimp - Create A Key](/images/docs/integrations/mailchimp/api-key/step-1.png)
+
+2. Provide the name for the new API key and click the "Generate Key" button to generate it.
+
+![MailChimp - Generate API Key](/images/docs/integrations/mailchimp/api-key/step-2.png)
+
+Copy the API key store in your `.env` file
+
+```ini
+MAILCHIMP_API_KEY=YOUR_MAILCHIMP_API_KEY
+   ```
+
+## MailChimp Server Region
+
+Login to your Mailchimp account. In the browser URL bar you’ll find something similar to this:
+
+`https://us21.admin.mailchimp.com/`
+
+The `us21` is the server prefix we need. Store this in your `.env` file
+
+```ini
+MAILCHIMP_API_SERVER=MAILCHIMP_API_SERVER
+```
+
+## Tips
+
+- **Security**: Ensure your API key and credentials are stored securely and not exposed in public repositories.
+- **Testing**: Test the email functionality thoroughly in both development and production environments to ensure everything works correctly.
+- **Monitoring**: Monitor your email campaigns and handle any issues, such as bounced emails or emails marked as spam.
+- **Compliance**: Follow email marketing regulations and best practices to avoid having your emails marked as spam.
+
+By following these steps, you will seamlessly integrate MailChimp into your SaaS boilerplate, allowing you to manage your email subscribers and send effective marketing campaigns.

@@ -1,0 +1,93 @@
+---
+title: Uploads | SaasBold Documentation
+description: Learn how to integrate an S3 bucket for managing file uploads in your SaaSBold boilerplate.
+---
+
+# Uploads
+
+In this part of the documentation we are going to show you how to integrate S3 bucket for managing file uploads.
+
+## Overview
+
+Integrating an S3 bucket into your SaaSBold boilerplate is essential for managing file uploads, such as user profile images and other resources. This guide focuses on using Cloudflare R2 as the S3 bucket provider, but you can adapt these instructions for other S3-compatible services.
+
+We've used the **Cloudflare R2** bucket in this boilerplate.
+
+Follow the instructions below to integrate an **S3** bucket into your SaaS boilerplate.
+
+## Create a Cloudflare R2 Bucket
+
+1. Login to your [Cloudflare](https://www.cloudflare.com/) account.
+2. Go to **R2 > Create Bucket,** fill in the bucket name, and save.
+
+![](/images/docs/integrations/uploads/creating-bucket/step-2.png)
+
+Also, update this env variable with your Bucket name.
+
+```ini
+R2_BUCKET_NAME=YOUR_BUCKET_NAME
+   ```
+
+3. Generate the Secret and Access Key: Copy the Account ID and save it to the env file, after that, click on the **Manage R2 API Tokens** button.
+
+```ini
+R2_ACCOUNT_ID=
+   ```
+
+![](/images/docs/integrations/uploads/creating-bucket/step-3-1.png)
+
+It'll redirect you to this page. Now click on the **Create API token** button.
+
+![](/images/docs/integrations/uploads/creating-bucket/step-3-2.png)
+
+Now assign the **Token name**, then select **Object Read & Write** permission and choose the **Bucket** you created earlier. Once you are done, scroll down and click the **Create API Token** button.
+
+![](/images/docs/integrations/uploads/creating-bucket/step-3-3.png)
+
+Once you click on that button you'll see the Access Key ID and the Secret Access Key. Go ahead and copy them and update the env file.
+
+![](/images/docs/integrations/uploads/creating-bucket/step-3-4.png)
+
+```ini
+R2_ACCESS_KEY_ID=
+R2_SECRET_ACCESS_KEY=
+   ```
+
+This is it. We've used the R2 bucket to store the user profile image.
+You can use the upload action and modify it for other resources like downloadable files etc.
+
+![](/images/docs/integrations/uploads/creating-bucket/image.png)
+
+## Configuring CORS Policy
+
+Now, we have to configure the CORS policy to enable the file upload from your App.
+
+1. Go to your **Bucket>Settings**
+
+![](/images/docs/integrations/uploads/cors-policy/step-1.png)
+
+2. Scroll down and click on the **Edit CORS Policy**
+
+![](/images/docs/integrations/uploads/cors-policy/step-2.png)
+
+3. Update the CORS policy with the following code and save it.
+
+```json
+[
+	{
+		"AllowedOrigins": ["*"],
+		"AllowedMethods": ["PUT", "GET"],
+		"AllowedHeaders": ["*"],
+		"ExposeHeaders": [],
+		"MaxAgeSeconds": 3000
+	}
+]
+   ```
+
+## Tips
+
+- **Environment Variables**: Always ensure your environment variables are correctly set in your `.env` file to avoid connection issues.
+- **Permissions**: Assign appropriate permissions to your API tokens to ensure secure and functional access to your bucket.
+- **CORS Configuration**: Properly configure CORS policies to enable cross-origin requests for file uploads from your application.
+
+By following these steps, you can successfully integrate an S3 bucket into your SaaSBold boilerplate, ensuring seamless file upload and management capabilities.

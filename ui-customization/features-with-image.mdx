@@ -1,0 +1,76 @@
+---
+title: Features with Image | SaasBold Documentation
+description: Technical guide for modifying the SaaSBold features with images section, including steps to update headings, descriptions, and visuals.
+---
+
+# Features with Image
+
+In this part of the documentation, we will show you how to customize the features section with images in the SaaSBold boilerplate, including updating feature details and images.
+
+This section is designed to visually showcase the main features of your application alongside descriptive text.
+
+```tsx
+import FeaturesWithImage from "./FeaturesWithImage";
+```
+
+## Overview
+
+The default features with the image section of SaaSBold include the following elements:
+
+![](/images/docs/ui-customization/features-with-image.png)
+
+- **Heading**: The main title that introduces the features section with an image.
+
+- **Supporting Description:** A brief description or tagline emphasizing the product's primary benefits.
+
+- **Feature Title**: Summarizing the main benefit or functionality.
+
+- **Feature Description**: A concise explanation of what the feature does and how it benefits the user.
+
+- **Features Bullet Points**: A list of key benefits or functionalities associated with the feature.
+
+- **Image**: An image showcasing the feature, providing a visual representation to support the text.
+
+## Steps to Customize
+
+Open the `FeaturesWithImage` component file located in `components/Home/FeaturesWithImage/index.tsx`
+
+**Update the Heading and Description**: Modify the main title and supporting description to reflect your product’s unique selling points.
+
+```tsx
+title = "Stand Out, Launch Fast!";
+description = "Lorem ipsum dolor sit amet.....";
+```
+
+**Update the Feature Heading and Description**
+
+1. Go to the `dictionary/en.json` file.
+2. Update the feature titles and descriptions in `homepage.features_with_image_section.items`.
+
+```json
+[
+	{
+		"title": "Build, Launch, Scale with SaaSBold",
+		"subtitle": "Lorem ipsum...",
+		"features": [
+			"Ready-to-Use Integrations",
+			"Cutting-edge Technologies",
+			"High-quality Design"
+		]
+	}
+	// Add more features here
+]
+```
+
+**Update the Image**: Within `/public/images/features` you'll see icons with names like `feature-01.svg`, `feature-02.svg`. Replace these icons with your custom icons. Keep the naming convention consistent.
+
+**Review and Save**: After making your changes, review the updated features with the image section to ensure they effectively communicate the product's key benefits. Save the file and check the changes.
+
+## Tips
+
+- **Clear and Compelling Headlines**: Ensure the heading and sub-headings are engaging and convey the main message.
+- **Highlight Key Benefits**: The feature heading and description emphasize the main benefit.
+- **Concise Bullet Points**: Make the bullet points easy to read and understand. Each point should add value.
+- **Relevant and High-Quality Image**: To maintain a professional look, choose an image that is relevant to the feature and of high quality.
+
+By following these steps and tips, you can create an effective feature with an image section that showcases your application's strengths, helping to attract and convert potential users.

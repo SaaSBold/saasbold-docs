@@ -1,0 +1,102 @@
+---
+title: LemonSqueezy | SaasBold Documentation
+description: Learn how to integrate LemonSqueezy into your SaaSBold Boilerplate for managing payment and subscriptions.
+---
+
+# LemonSqueezy
+
+SaaSBold comes with LemonSqueezy integration for managing subscriptions. This part of the documentation, will show you how to integrate LemonSqueezy into your SaaS boilerplate.
+
+## Overview
+
+LemonSqueezy is a user-friendly platform for subscription management. This guide will provide step-by-step instructions for integrating LemonSqueezy, covering store creation, product setup, API key generation, and webhook configuration.
+
+> **Note**\
+> If you want to use another payment provider for integration, skip this step. Instead, follow the [Stripe](/docs/integrations/stripe) or [Paddle](/docs/integrations/paddle) guides to integrate subscriptions.
+
+## Create a Store
+
+To begin integrating, you need to create a store in LemonSqueezy.
+
+1. Log in to your LemonSqueezy account and go to [Dashboard](https://app.lemonsqueezy.com/dashboard).
+
+2. Click on the three dots and select "Create a Store".
+
+![LemonSqueezy Dashboard](/images/docs/integrations/lemonsqueezy/create-store/step-2.png)
+
+Now that you have created the Store, we have the Store ID.
+
+3. Go to **Settings > Stores**. You will see all your stores listed here. Find the **Store ID** next to the Store URL.
+
+![LemonSqueezy - Store ID](/images/docs/integrations/lemonsqueezy/create-store/step-3.png)
+
+Copy the Store ID and update the environment variable:
+
+```ini
+LEMON_SQUEEZY_STORE_ID="YOUR_STORE_ID"
+   ```
+
+## Add Products
+
+Next, we have to add products in our LemonSqueezy store:
+
+1. Go to `Products` and click on the "New Product" button. It will open up a sidebar.
+
+![LemonSqueezy - Product Page](/images/docs/integrations/lemonsqueezy/add-products/step-1.png)
+
+2. Fill in the product details and add variants. For this demo, we've added three variants.
+
+![LemonSqueezy - Product Variants](/images/docs/integrations/lemonsqueezy/add-products/step-2.png)
+
+3. After creating the product variants, copy the Variant IDs and update the `pricingData.ts` file with these IDs.
+
+You can copy the Variant ID from each of the Variants.
+
+![SaaSBold - Pricing Component](/images/docs/integrations/lemonsqueezy/add-products/step-3.png)
+
+## Generate API Key
+
+To interact with LemonSqueezy, Now we need an API key. Let's Generate the API Key
+
+1. Go to **Settings > API** and click on the plus icon to generate an API key.
+
+![LemonSqueezy - API Key](/images/docs/integrations/lemonsqueezy/generate-api-key/step-1.png)
+
+Copy the API key and update the environment variable:
+
+```ini
+LEMON_SQUEEZY_API_KEY="YOUR_API_KEY"
+   ```
+
+## Webhook Integration
+
+We’ve created the products and generated the API key. Now, we have to integrate Webhook to save the subscription data on the Database.
+
+1.  Go to **Settings > Webhook** and click on the plus icon, it will open a sidebar like this:
+
+![LemonSqueezy - Webhook Integration](/images/docs/integrations/lemonsqueezy/webhook/step-1.png)
+
+2.  Add the webhook URL as follows:
+
+```
+yoursite.com/api/lemon-squeezy/webhook
+    ```
+
+3.  **Add Signing Secret**: Provide a signing secret of your choice (it could be anything you want).\
+Copy the secret and update your environment variable:
+`ini
+LEMON_SQUEEZY_WEBHOOK_SIGNATURE="YOUR_SECRET"
+`
+4.  Select the actions to be triggered by the webhook. For now, select all actions. You can customize this later.
+5.  Click the "Save Webhook" button to finalize the integration.
+
+## Tips
+
+- **Testing**: Use LemonSqueezy's test mode to thoroughly test the integration before going live.
+- **Documentation**: Refer to LemonSqueezy’s official documentation for detailed instructions and troubleshooting.
+- **Security**: Ensure that API keys and webhook secrets are stored securely and not exposed.
+- **Event Selection**: Select only the webhook events necessary for your application to minimize unnecessary data processing.
+
+## Summary
+
+By following these steps, you will have integrated LemonSqueezy into your SaaSBold boilerplate, enabling seamless subscription management. Be sure to test the integration thoroughly to ensure all functionalities work correctly.

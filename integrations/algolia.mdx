@@ -1,0 +1,77 @@
+---
+title: Algolia | SaasBold Documentation
+description: Learn how to integrate Algolia into your SaaSBold boilerplate to enhance your application's search functionality.
+---
+
+# Algolia
+
+In this part of the documentation, we will show you how to integrate Algolia into your Boilerplate.
+
+## Overview
+
+Integrating Algolia into your SaaSBold boilerplate will enhance your application's search functionality, providing your users with fast and relevant search results.
+
+Follow the steps below to integrate Algolia:
+
+## Step-by-Step Guide
+
+1. **Create an Algolia Account**\
+Log in to your [Algolia](https://www.algolia.com/) dashboard. If you don’t have an account, go ahead and create one.
+2. **Create a project**\
+Go to the dashboard, click on **Application** and, then click on the **Create Application** button. Follow the steps to create the application.
+
+![Creating Application from Algolia dashboard page screenshot](/images/docs/integrations/algolia/step-2-1.png)
+
+> **Note**\
+   > It’ll create an unnamed application. If you prefer to change the name go to: Settings>Applications.
+
+After creating the application you’ll be redirected to a page for importing data.
+
+For now click on **Skip for now**, you can import data or use the crawler of Alogolia to extract data from your site later on.
+
+![Algolia import-data page screenshot](/images/docs/integrations/algolia/step-2-2.png)
+
+3. **Application ID & Search API Key**
+
+![Application page on Algolia screenshot](/images/docs/integrations/algolia/step-3-1.png)
+
+These values are for the below environment variables
+
+```ini
+NEXT_PUBLIC_ALGOLIA_APPLICATION_ID=
+NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY=
+   ```
+
+Alternatively, if you do not see this section below on the Overview page. You can go to your account settings>Applications
+
+You’ll see a list of all the application you created. Click on the application you want to use for this project.
+
+Now you’ll be redirected to this page. Click on **API Keys**
+
+![Screenshot of API Keys link below Application page's welcome message](/images/docs/integrations/algolia/step-3-2.png)
+
+Now copy the **Application ID** and **Search API Key** and store it in your environment variables
+
+![Screenshot of API Keys page; listing Application ID and Search API Key](/images/docs/integrations/algolia/step-3-3.png)
+
+4. **Create an Index Name**
+
+From the Overview page click on **Data sources**
+
+![Screenshot of Data Sources link on the Algolia Application's page](/images/docs/integrations/algolia/step-4-1.png)
+
+Now from the **Indices** tab click on **Create Index**
+
+![Screenshot of the Indices page with the Create Index button](/images/docs/integrations/algolia/step-4-2.png)
+
+A modal will open, enter your preferred Index name.
+
+A rule of thumb we suggest for naming the index: _Describes what it stores_. So your name will reflect the data Algolia will store on that index name. Additionally prefix the name with the environment you’ll be using it in(e.g development, production).
+
+Now click on **Create**.
+
+![Screenshot of the Create Index modal with an input field for the index name.](/images/docs/integrations/algolia/step-4-3.png)
+
+Store this index name in your env. You’ll find a variable `NEXT_PUBLIC_ALGOLIA_INDEX_NAME`
+
+By following these steps, you can successfully integrate Algolia into your SaaSBold boilerplate, providing an efficient search experience for your users.

@@ -1,0 +1,74 @@
+---
+title: Emails | SaasBold Documentation
+description: Learn how to integrate SMTP to send transactional emails and magic links for authentication in your SaaS application.
+---
+
+# Emails
+
+In this part of the documentation, we will show you how to integrate SMTP to be able to send transactional emails and magic links for authentication.
+
+## Overview
+
+SaaSBold boilerplate supports email integration for sending transactional emails and authentication magic links. This is crucial for enhancing user engagement and communication within your SaaS application.
+
+> **Note**\
+> We will be using Resend as our SMTP provider, but you can use any SMTP provider you want.
+
+Follow this guide to integrate Resend into your boilerplate seamlessly.
+
+## Get The SMTP Credentials
+
+Here are the steps to integrate SMTP into your Boilerplate.
+
+1. Log in to your Resend account and go to your dashboard.
+If you don’t have one, go to [Resend](https://resend.com/) and click the "**Get Started**" button to create an account.
+
+2. **Generate API Key:** Navigate to **Settings > API Keys** and then click on "Create API Key". A popup will appear for providing the name for your API key.
+
+![Resend - Create API](/images/docs/integrations/emails/credentials/step-2.png)
+
+3. **View API Key**: Once you click "Add", a popup with the API key will appear. You can only see this key once, so copy it and store it in your `.env` file.
+
+![Resend - API Key](/images/docs/integrations/emails/credentials/step-3.png)
+
+## Configuring SMTP Host and Port
+
+1. **SMTP PORT and HOST:** Go to _Settings>SMTP_. You can see all of them here. Go ahead and copy these values.
+
+![Resend - SMTP](/images/docs/integrations/emails/host-and-port/step-1.png)
+
+2. **Update Environment Variables**: Open the `.env` file, Add the following lines, replacing the placeholders with the your credentials:
+
+```ini
+EMAIL_SERVER_HOST=
+EMAIL_SERVER_PORT=
+EMAIL_SERVER_USER=
+EMAIL_SERVER_PASSWORD=YOUR_SMTP_PASSWORD # For Resend this will be your API KEY
+EMAIL_FROM=
+   ```
+
+> **Important**\
+> One last thing we have to do is verify the Domain. Without verifying the domain, the email will not reach the destination.
+
+## Verify Domain
+
+It is crucial to verify your domain to send transactional emails such as welcome messages, password resets, etc.
+
+1. **Add Domain:** Go to **Settings > Domains** in Resend and click "Add Domain".
+
+![Resend - Add Domain](/images/docs/integrations/emails/verify-domain.png)
+
+2. **Add DNS record:** Follow the on-screen instructions to verify your domain by adding DNS records.
+
+3. **Verify DNS Record**: Once you have added DNS records, click on the "Verify DNS Records" button to verify.
+
+If you get stuck, follow the official [documentation](https://resend.com/docs/introduction) by Resend on setting up the domain.
+
+## Tips
+
+- **Security**: Ensure your API key and SMTP credentials are stored securely and not exposed in public repositories.
+- **Testing**: Test the email functionality thoroughly in both development and production environments to ensure everything works correctly.
+- **Monitoring**: Monitor your email delivery and handle issues such as bounced emails or emails marked as spam.
+- **User Experience**: Customize email templates to match your brand and provide a consistent user experience.
+
+By following these steps, you will seamlessly integrate Resend into your SaaS boilerplate for efficient email delivery, enhancing user engagement and communication.

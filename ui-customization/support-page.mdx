@@ -1,0 +1,54 @@
+---
+title: Support Page | SaasBold Documentation
+description: In this part of the documentation, we will show you how to customize the support page of the SaaSBold boilerplate to provide user support information.
+---
+
+# Support Page
+
+The support page is essential for providing users with a way to get help and resolve their issues promptly.
+
+```tsx
+import Support from "@/components/Support";
+```
+
+## Overview
+
+The default support page includes a form for users to enter their full name, email, and message and additional information about opening a support ticket.
+
+![Support Page](/images/docs/ui-customization/support-page.png)
+
+- **Support Form**: A form where users can enter their details and messages to request support.
+- **Additional Help Information**: Text provides additional information on getting help or opening a support ticket.
+
+## Steps to Customize
+
+**Locate the Support Page Component File**: Open the `Support` component file located in `components/Support/index.tsx`
+
+**Update the Support Form**: Modify the form fields and labels to match the information you need from users.
+
+```tsx
+<form>...</form>
+```
+
+**Customize Additional Help Information**: Update the text providing additional help information to match your support process and resources.
+
+```tsx
+...
+<div>
+	<h2> Need any help? Just open a support ticketb </h2>
+
+	<p>Our support team will get back to as soon as they can.</p>
+</div>
+...
+```
+
+**Review and Save**: After customizing the support page, ensure the form fields and labels are clear and functional. Save the file and verify the changes.
+
+## Tips
+
+- **Clear and Concise Form**: Ensure the support form is easy to fill out and only asks for necessary information.
+- **Prompt Response Assurance**: Assure users that their support requests will be addressed promptly.
+- **Helpful Navigation**: Provide clear navigation options to help users easily navigate to other sections of the website.
+- **Consistent Branding**: Maintain consistent branding, including colors and fonts, to provide a seamless user experience.
+
+By following these steps and tips, you can create an effective support page that helps users get the assistance they need quickly and efficiently.

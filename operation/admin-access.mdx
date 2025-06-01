@@ -1,0 +1,21 @@
+---
+title: Admin Access | SaasBold Documentation
+description: In this part of the documentation, we are going to see how admin access works and how to enable it for certain users.
+---
+
+# Admin Access
+
+The admin dashboard is only accessible to the users whose **role** is set to **ADMIN**\
+To give yourself admin privilege add your email to the **ADMIN_EMAILS** `.env` variable before registering with that email.
+
+```ini
+ADMIN_EMAILS=youremail@gmail.com
+```
+
+If you want to add other users as admin, you can add their emails as a comma-separated list.
+
+```ini
+ADMIN_EMAILS=youremail@gmail.com,sam@gmail.com,jhon@gmail.com
+```
+
+This will set the **role** to **ADMIN** for these users, and it will enable all the features on the Admin dashboard for these users.

@@ -1,0 +1,55 @@
+---
+title: Installation | SaasBold Documentation
+description: Learn how to install and deploy the SaaSBold boilerplate.
+---
+
+# Installation
+
+In this part of the documentation, we are going to show you how to install and deploy the SaaSBold Boilerplate.
+
+Before we start the installation process make sure you have Node.js installed on your machine.\
+Otherwise, the installation commands won't work.
+
+Follow these steps to install the template:
+
+1. Download the zip file from [SaaSBold](https://saasbold.com/pricing)
+
+2. Extract the zip file and _cd_ into the template folder. Now run this command to install the dependencies:
+
+```bash
+npm install
+# or
+yarn install
+   ```
+
+> Some included packages causes peer-deps issue with React 19 while installing.With npm the `--legacy-peer-deps` flag is a workaround for that at the moment.
+
+Follow these steps below to complete all the integrations:
+
+1. [Database](https://saasbold.com/docs/installation#id-1.-database)
+2. [Authentication](https://saasbold.com/docs/installation#id-2.-authentication)
+3. [Stripe](https://saasbold.com/docs/integrations/stripe)
+4. [Sanity](https://saasbold.com/docs/integrations/sanity)
+5. [Algolia](https://saasbold.com/docs/integrations/algolia)
+6. [Mailchimp](https://saasbold.com/docs/integrations/mailchimp)
+7. [Resend](https://saasbold.com/docs/integrations/emails)
+
+When you are done with all the integration, now you can start the project on the local server
+
+```sh
+npm run dev
+```
+
+It’ll start the template on http://localhost:3000
+
+## Deploying on PaaS
+
+If you are using a GitHub repo then you can go with free-of-cost and easy-to-use options like [Vercel](https://vercel.com/), or [Netlify](https://netlify.com/) they offer decent-free tiers for Next.js hosting.
+
+Since we are using Prisma ORM, make sure to edit the build command like this while deploying to Vercel.
+
+![Build command override on Vercel](/images/docs/installation/build-command-override.png)
+
+```bash
+prisma generate && npm run build
+```

@@ -1,0 +1,69 @@
+---
+title: Pricing | SaasBold Documentation
+description: In this part of the documentation, we will demonstrate how to customize the pricing section of the SaaSBold boilerplate to display your pricing plans.
+---
+
+# Pricing
+
+The pricing section is essential for clearly and attractively presenting your product's pricing structure, helping potential customers understand the value, and choosing the plan that best suits their needs.
+
+```tsx
+import Pricing from "./Pricing";
+```
+
+## Overview
+
+The SaaSBold pricing section in SaaSBold includes a title, description, and three pricing plans. These components work together to present the pricing structure clearly and attractively.
+
+![Pricing Component](/images/docs/ui-customization/pricing.png)
+
+- **Heading**: The main title that introduces the pricing section, emphasizing the affordability and simplicity of your plans.
+- **Description**: Supporting text that provides additional context about the pricing plans and their benefits.
+- **Pricing Plans**: Different tiers of pricing plans are tailored to various customer needs, each with a specific name, target audience, description, price, features, and a call-to-action button.
+
+## Steps to Customize
+
+**Locate the Pricing Component File**: Open the Pricing component file located in `components/Home/Pricing/index.tsx`.
+
+**Update the Heading**: Modify the Title to reflect your pricing strategy and the value offered.
+
+```tsx
+title={"Simple Affordable Pricing"}
+```
+
+**Update the Description:** Enhance the description to provide compelling reasons why users should choose your plans.
+
+```tsx
+description = "Lorem ipsum dolor sit amet, consectetur...";
+```
+
+## Customize Pricing Plans
+
+**Locate Pricing Data File:** Open the pricing data file located in the `pricing/pricingData.ts`.
+
+**Update Pricing Data:** Update each pricing plan with relevant details, including the plan name, target audience, description, price, included features, and icon.
+
+```tsx
+...
+{
+	priceId: "price_xxxxxx",
+	unit_amount: 99 * 100,
+	nickname: pricingPlans[0].name,
+	description: pricingPlans[0].description,
+	subtitle: pricingPlans[0].for,
+	includes: pricingPlans[0].included.items,
+	icon: `/images/pricing/pricing-icon-01.svg`,
+},
+...
+
+```
+
+**Review and Save**: After customizing the pricing plans, ensure they are clearly presented and accurately reflect your product's offerings. Save the file and verify the changes.
+
+## Tips
+
+- **Clarity and Transparency**: Ensure pricing details are clear and transparent, helping users understand the value they get for their money.
+- **Highlight Key Features**: Emphasize the most valuable features included in each plan.
+- **Differentiation**: Differentiate between pricing plans to help users quickly decide which plan suits their needs best.
+
+By following these steps and tips, you can create an effective pricing section that clearly communicates your pricing strategy and helps potential customers make informed decisions.

@@ -1,0 +1,63 @@
+---
+title: FAQ | SaasBold Documentation
+description: In this part of the documentation, we will show you how to customize the FAQ section of the SaaSBold boilerplate to provide answers to frequently asked questions.
+---
+
+# FAQ
+
+The FAQ section is crucial for addressing common inquiries and concerns, helping users quickly find the information they need.
+
+```tsx
+import FAQ from "./FAQ";
+```
+
+## Overview
+
+The SaaSBold FAQ section includes a clear and concise presentation of common questions and answers.
+
+![FAQ Components](/images/docs/ui-customization/faq.png)
+
+- **Heading**: The main title that introduces the FAQ section.
+- **Description**: Supporting text that provides additional context or an introduction to the FAQs.
+- **Questions and Answers**: A list of common questions and their corresponding answers, addressing potential user concerns and providing clarity.
+
+## Steps to Customize
+
+Open the `FAQ` component file located in `components/Home/FAQ/index.tsx`
+
+**Update the Heading**: Modify the heading to introduce the FAQ section effectively.
+
+```tsx
+title={"Frequently Ask Questions"}
+```
+
+**Update the Description**: Enhance the description to provide a brief overview or introduction to the FAQs.
+
+```tsx
+description = "Lorem ipsum dolor sit amet,.... ";
+```
+
+**Customize Questions and Answers**
+
+1. Go to the `dictionary/en.json` file.
+2. Update the FAQ questions and answers in `homepage.faq_section.items`.
+
+```json
+[
+	{
+		"question": "Does this app offer a free trial period?",
+		"answer": "All individual Framer subscriptions have been...."
+	}
+	// Add more questions and answers here
+]
+```
+
+**Review and Save**: After customizing the FAQ section, ensure each question and answer effectively addresses common user inquiries. Save the file and verify the changes.
+
+## Tips
+
+- **Clarity and Relevance**: Ensure questions are clearly stated and relevant to your users' common concerns.
+- **Concise Answers**: Provide concise and informative answers to each question.
+- **User Feedback**: Regularly update the FAQ section based on user feedback and new inquiries.
+
+By following these steps and tips, you can create an effective FAQ section that helps users quickly find answers to their questions, enhancing their overall experience with your product.

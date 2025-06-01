@@ -1,0 +1,70 @@
+---
+title: Database | SaasBold Documentation
+description: Step-by-step guide to configure PostgreSQL/MongoDB databases with Prisma for SaaSBold projects
+---
+
+# Database
+
+In this part of the documentation, let's set up a database for your SaaSBold project.
+
+## The basics
+
+SaaSBold uses PostgreSQL by default to store user accounts and application data, but you can switch to MySQL, MongoDB, or another database if needed.
+
+Setting up your database takes just two steps:
+
+1. Get a connection string from your database provider
+2. Add it to your environment variables
+
+## Getting your database connection string
+
+Your database provider will give you a connection string that looks something like this:
+
+```
+postgres://username:password@hostname:5432/database_name
+```
+
+If you're using MongoDB instead, your connection string will look like:
+
+```
+mongodb://username:password@hostname:27017/database_name
+```
+
+> Need help getting a PostgreSQL connection string? Check out our [step-by-step guide](https://saasbold.com/blog/postgresql-database-url).
+
+## Setting up your project
+
+1. Open your project's `.env` file
+2. Update the `DATABASE_URL` variable:
+
+```
+DATABASE_URL="your_connection_string"
+```
+
+## Creating your database tables
+
+Now let's set up your database schema using Prisma:
+
+```bash
+# Create the tables in your database
+npx prisma db push
+
+# Generate the Prisma client
+npx prisma generate
+```
+
+That's it! Your database is ready to use.
+
+## Updating your schema later
+
+When you make changes to your database models in the Prisma schema file, remember to run:
+
+```bash
+npx prisma generate
+```
+
+This keeps your Prisma client in sync with your database structure.
+
+## Switching databases
+
+If you need to use a different database later, just update your connection string with the appropriate format for your new database provider.

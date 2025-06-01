@@ -1,0 +1,55 @@
+---
+title: Footer | SaasBold Documentation
+description: In this part of the documentation, we will demonstrate how to customize the footer section of the SaaSBold boilerplate.
+---
+
+# Footer
+
+The footer section is essential for providing navigation links, company information, social media links, and other relevant details that users might need.
+
+```tsx
+"@/components/Footer";
+```
+
+## Overview
+
+The SaaSBold footer section includes the company logo, copyright information, various navigation links, and social media icons to help users navigate through the website and stay connected on social media platforms.
+
+![Footer Component](/images/docs/ui-customization/footer.png)
+
+- **Logo**: The company logo is displayed at the top of the footer.
+- **Social Media Icons**: Links to the company's social media profiles.
+- **Copyright Information**: Text that provides copyright details and acknowledges the SaaSBold boilerplate.
+- **Navigation Links**: Links are categorized into different sections, such as Products, Resources, and Company, directing users to various parts of the website.
+
+## Steps to Customize
+
+**Locate the Footer Component File**: Open the Footer component file located in `components/Footer/index.tsx`.
+
+**Update the Logo**: Replace the existing logo with your company's logo.
+
+```tsx
+<a href='/'>
+	<Image src='/images/logo/logo-light.svg' alt='Logo' width={214} height={40} />
+</a>
+```
+
+**Update the Copyright Information**: Modify the copyright text to reflect your company's details.
+
+```tsx
+<p> © Your SaaS - Demo SaaS website created using SaaSBold </p>
+```
+
+**Customize Navigation Links**: Update the navigation links to match the sections and pages of your website.
+
+**Add Social Media Links**: Include links to your company's social media profiles with corresponding icons.
+
+**Review and Save**: After customizing the footer section, ensure all links are functional and accurately represent your website's sections and pages. Save the file and verify the changes.
+
+## Tips
+
+- **Clear and Concise**: Ensure the footer is well-organized and easy to navigate.
+- **Consistent Branding**: Use your company’s logo and consistent color scheme.
+- **Comprehensive Links**: Include links to all important sections of your website to facilitate easy navigation.
+
+By following these steps and tips, you can create an effective footer section that enhances user experience and provides easy access to essential parts of your website.

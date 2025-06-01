@@ -1,0 +1,76 @@
+---
+title: Hero | SaasBold Documentation
+description: Learn how to modify your SaaSBold hero section by customizing titles, descriptions, buttons, and brand elements with our step-by-step technical guide.
+---
+
+# Hero
+
+In this section of the documentation, we will show you how to customize the hero area of the SaaSBold boilerplate, including the title, paragraph, call-to-action buttons, and brand showcase.
+
+The hero section is a crucial part of your website. As it is the first thing visitors see, it should effectively convey your product's value proposition.
+
+```tsx
+import Hero from "./Hero";
+```
+
+## Overview
+
+SaaSBold boilerplate, the default hero section, showcases the following:
+
+![Hero Component](/images/docs/ui-customization/hero/overview.png)
+
+- **Title**: The main headline immediately conveys your product's core offering.
+- **Supporting Headline**: A detailed description elaborates on the product's value and features, helping visitors understand its benefits.
+- **Call to Action (CTA)**: A clear and actionable prompt encouraging users to engage with the product, such as trying a demo or signing up.
+- **Social Proof**: Statements that establish credibility and trust by highlighting the team's expertise or showcasing successful clients and testimonials.
+- **Brand Showcase**: The logo or other branding elements that reinforce brand identity and recognition.
+
+## Steps to Customize the Hero Component
+
+**Locate the Hero Component File**: Open the Hero component file in `components/Home/Hero/index.tsx`.
+
+**Update the Title**: Modify the title to clearly state your product's primary benefit and keyword in 4-7 words.
+
+```html
+<h1>.......</h1>
+```
+
+**Update the Supporting description**: The supporting paragraph should explain how your product delivers on the promise in the title. Highlight the key features and benefits.
+
+```html
+<p>...........</p>
+```
+
+## CTA Button
+
+The call-to-action button should start with a verb and prompt the user to act immediately.
+
+![Hero Component - CTA Button](/images/docs/ui-customization/hero/cta-button.png)
+
+```html
+<button>Try Demo</button>
+```
+
+## Brand Showcase
+
+![Social Proof](/images/docs/ui-customization/hero/brand-showcase.png)
+
+**Update Social Proof Title**: Include testimonials or endorsements to build trust and encourage conversions.
+
+```html
+<p>Built by the same team behind numerous......</p>
+```
+
+**Update Brand Logo:** Open the brand data file in `components/Home/Hero/brandData.tsx` to update the logo to showcase the brands as social proof.
+
+**Review and Save**: After making the changes, review the updated hero section to ensure it effectively communicates your product's value. Save the file and check the changes.
+
+## Tips for Effective Hero Sections
+
+- **Keep It Clear and Concise**: The title should be short and concise. Avoid jargon and complex language.
+- **Highlight the Pain Point or Benefit**: Explain the problem your product solves or the benefit it provides.
+- **Strong CTA**: Encourage users to take action with a clear and compelling call to action.
+- **Visual Appeal (Optional )**: Use relevant, high-quality images to help convey your message.
+- **Build Trust**: Include social Proof, such as top brands using your product endorsements to build credibility.
+
+Following these steps and tips, you can create a compelling hero section that grabs attention, communicates value, and encourages visitors to act.

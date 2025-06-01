@@ -1,0 +1,101 @@
+---
+title: Internationalization Support | SaasBold Documentation
+---
+
+# Internationalization Support
+
+SaaSBold boilerplate supports internationalization out of the box. It uses [next-intl](https://next-intl.dev/) for internationalization.
+
+The translation system from `next-intl` library is versatile and can be used in:
+
+- Server components (RSC)
+- Client components
+
+## How to use
+
+The guide below will show you how _we_ used `next-intl` throughout the project. You can deep dive more into this from their official [guide](https://next-intl.dev/docs/environments/server-client-components#async-components).
+
+### Server components (RSC)
+
+To use translations in server components, use the `getTranslations` function from `next-intl`.
+
+```tsx
+import { getTranslations } from "next-intl";
+
+export default async function Page() {
+	const t = await getTranslations("account_settings_page");
+
+	return <Breadcrumb pageTitle={t("heading")} />;
+}
+```
+
+### Client components
+
+The library also provides a hook to use translations in client components.
+
+```tsx
+"use client";
+
+import { useTranslations } from "next-intl";
+
+export default function CopyToClipboard() {
+	const t = useTranslations("common");
+
+	return <button>{t("copy")}</button>;
+}
+```
+
+## Adding new translations
+
+Out of the box SaaSBold ships with English and German translations. To add a new language:
+
+1. Create a new file in the `/dictionary` directory with the language code as the filename (e.g. `fr.json` for French).
+2. Add the translations to the file
+
+Go to the `/dictionary/en.json` file and copy the content. Paste it into the new file and translate the values.
+
+```json
+{
+	"header": {
+		"features": "Fonctionnalités",
+		"pricing": "Tarifs",
+		"blog": "Blog",
+		"pages": "Pages",
+		"blogDetails": "Détails du blog",
+		"signIn": "Connexion",
+		"signUp": "Inscription",
+		"errors": "Erreurs 404",
+		"support": "Support",
+		"buyNow": "Acheter maintenant ↗",
+		"account_menu": {
+			"account_settings": "Paramètres du compte",
+			"dashboard": "Tableau de bord",
+			"logOut": "Déconnexion"
+		}
+	}
+}
+   ```
+
+> **Important**\
+   > The key names should be the same across all language files.
+
+**Good to know:** The `en.json` file is the default language file. If a key is missing in the new language file, the value from the `en.json` file will be used.
+
+3. Add the new language to the `SUPPORTED_LOCALES` array in the `src/i18n/supported-locales.ts` file.
+
+```ts
+export const SUPPORTED_LOCALES = [
+	{
+		name: "English",
+		code: "en",
+	},
+	{
+		name: "German",
+		code: "de",
+	},
+	{
+		name: "French",
+		code: "fr",
+	},
+];
+   ```

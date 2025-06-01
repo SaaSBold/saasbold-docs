@@ -1,0 +1,70 @@
+---
+title: Features | SaasBold Documentation
+description: Step-by-step instructions for customizing your SaaSBold features section by modifying titles, descriptions, and icons to showcase your product's capabilities.
+---
+
+# Features
+
+In this documentation section, we will demonstrate how to customize the features section of the SaaSBold boilerplate to highlight your application's key features.
+
+The features section is essential for showcasing the product's primary benefits and functionalities, helping potential users understand its value.
+
+```tsx
+import Features from "./Features";
+```
+
+## Overview
+
+The default features section of SaaSBold highlights the following key features:
+
+![Features Section](/images/docs/ui-customization/features.png)
+
+- **Heading**: The main title that introduces the features section.
+- **Supporting Description**: A brief explanation or summary of the features section.
+- **Feature Title**: The title of each feature, summarizing its main benefit or functionality.
+- **Feature Description**: A detailed explanation of each feature, describing what it does and how it benefits the user.
+- **Icon**: An icon associated with each feature helps to convey its purpose quickly.
+
+## Steps to Customize the Features Component
+
+To customize the features section of the SaaSBold boilerplate, follow these steps to update the various elements, such as the heading, supporting headline, feature titles, feature descriptions, and icons.
+
+**Locate the Features Component File**: Open the Features component file located in the components/Home/Features/index.tsx.
+
+**Update the Title:** Find the main title element in index.tsx for the features section and update it to reflect the main introduction of your features.
+
+```tsx
+title = "Launch SaaS Startup in Days";
+```
+
+**Update the Supporting Description:** Modify the supporting headline/description to summarize the features section briefly.
+
+```tsx
+description =
+	"Everything you need to build, launch, and scale your SaaS startup.";
+```
+
+### Update Feature Titles and Descriptions
+
+1. Go to `dictionary/en.json` file
+2. Update feature titles and descriptions in `homepage.features_section.features`.
+
+```json
+{
+	"title": "Ready-to-Use Integrations",
+	"description": "Database (Postgres with Prisma ORM)......."
+}
+```
+
+**Update Icons**: Within `/public/images/features` you'll see icons with names like `feature-icon-01.svg`, `feature-icon-02.svg`, etc. Replace these icons with your custom icons. Keep the naming convention consistent.
+
+**Review and Save**: After making changes, review the updated features section to ensure it effectively communicates the product's key benefits. Save the file and check the changes.
+
+## Tips for Effective Features Section
+
+- **Clarity and Precision**: Make sure each feature title and description are clear and concise. Avoid jargon and complex language.
+- **Visual Appeal**: Use high-quality icons that are easily recognizable and relevant to the features.
+- **Highlight Key Benefits**: Focus on the primary benefits and functionalities.
+- **Consistency**: Maintain a consistent style and format for all features to provide a cohesive look.
+
+By following these steps and tips, you can create a compelling features section that effectively showcases your application's strengths and benefits, helping to attract and convert potential users.

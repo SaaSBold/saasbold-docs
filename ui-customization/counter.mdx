@@ -1,0 +1,54 @@
+---
+title: Counter | SaasBold Documentation
+description: In this part of the documentation, we will show you how to customize the counter section of the SaaSBold boilerplate to display key statistics.
+---
+
+# Counter
+
+The counter section is essential for presenting impressive metrics highlighting your product's success and scale, helping build trust and credibility with potential users.
+
+```tsx
+import Counter from "./Counter";
+```
+
+## Overview
+
+The SaaSBold counter section includes a heading and a set of statistics highlighting the product's important metrics. Showcases the following:
+
+![Counter Component](/images/docs/ui-customization/counter.png)
+
+**Heading**: The main title that introduces the counter section.
+
+**Statistics**: Key numerical metrics that quantify essential aspects of the product or service.
+
+## Steps to Customize
+
+**Locate the Counter Component File**: Open the `Counter` component file located in `components/Home/Counter/index.tsx`.
+
+**Update the Heading**: Modify the heading to reflect the key message you want to convey with your statistics.
+
+```tsx
+<h2> Numbers That Speak Volumes </h2>
+```
+
+**Update the Statistics:** Change the statistics to highlight the most relevant metrics for your product. Each statistic should be meaningful and impactful.
+
+```tsx
+...
+    <h3>
+        <CountUp targetNumber={80} /> // Numerical Data
+    </h3>
+
+    <p> Happy Customers </p> // Key metrics
+...
+```
+
+**Review and Save**: After making your changes, review the updated counter section to ensure it effectively communicates the product's key statistics. Save the file and check the changes.
+
+## Tips
+
+- **Meaningful Statistics**: Choose statistics that are relevant and impressive to the audience. Ensure each number adds value and reinforces the credibility of your product.
+- **Clear and Concise**: Keep the statistics clear and easy to understand.
+- **Visual Appeal**: Use bold fonts and contrasting colors to draw attention to the numbers.
+
+By following these steps and tips, you can create an effective counter section highlighting the application's strengths, helping build trust and credibility with potential users.

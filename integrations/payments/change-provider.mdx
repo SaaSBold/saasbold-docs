@@ -1,0 +1,54 @@
+---
+title: Change Payment Provider | SaasBold Documentationr
+description: Learn how to switch between payment providers in SaaSBold.
+---
+
+# Change Payment Provider
+
+SaaSBold provides robust payment integration options, including Stripe, LemonSqueezy, and Paddle. This documentation section will guide you through switching between these payment providers.
+
+## Overview
+
+SaaSBold offers different payment integrations to handle transactions. Currently, it supports Stripe, LemonSqueezy, and Paddle. The integration is reflected on the home and user billing pages.
+
+## Integration Points
+
+1. Home page
+2. User Billing page.
+
+## Change on the Home page
+
+To change the payment provider on the home page:
+
+1. **Locate the Pricing Component**: Open the pricing component file in the `components/Home/Pricing/index.tsx`.
+2. **Switch Providers**: Uncomment your preferred provider's import statement and comment out the existing one.
+
+![Home Page - Pricing Component Change](/images/docs/integrations/change-payment-provider/image-1.png)
+
+Uncomment the provider you want to use and comment out the other.
+
+## Change in Billing page
+
+The process for changing the payment provider on the billing page is similar to the home page:
+
+1. Open the user billing pricing component file located in the `components/User/Billing/index.tsx`.
+2. **Switch Providers**: Uncomment your preferred provider's import statement and comment on the existing one.
+
+![User Billing Page - Pricing Component](/images/docs/integrations/change-payment-provider/image-2.png)
+
+Make sure to configure your Payment provider.
+
+## Configuration
+
+Ensure that you properly configure the chosen payment provider. Each provider requires specific setup steps detailed in their respective guides within this documentation. Follow these guides to configure API keys, webhook endpoints, and other necessary settings to enable seamless transactions.
+
+- [Stripe](/docs/integrations/stripe)
+- [LemonSqueezy](/docs/integrations/lemonsqueezy)
+- [Paddle](/docs/integrations/paddle)
+
+## Tips
+
+- **Test Thoroughly**: After switching the provider, test the payment process thoroughly to ensure everything works correctly.
+- **Monitor Transactions**: Monitor the initial transactions to catch any potential issues early.
+
+By following these steps, you can easily switch between different payment providers in SaaSBold, providing flexibility and ensuring that your payment processes align with your business needs.
